@@ -31,9 +31,8 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="data/alcaldiasalcaldias_cdmx_2.js"></script>
-        <script src="data/Coloniasconpostes_3.js"></script>
-        <script src="data/Coloniassinpostes_4.js"></script>
-        <script src="data/PuntosWifi_5.js"></script>
+        <script src="data/Coloniasconwifi_3.js"></script>
+        <script src="data/Coloniasprogramadas_4.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -46,7 +45,7 @@
             } else {
               highlightLayer.setStyle({
                 fillColor: '#ffff00',
-                fillOpacity: 0.1
+                fillOpacity: 0.15
               });
             }
             highlightLayer.openPopup();
@@ -77,7 +76,7 @@
         map.getPane('pane_CartoPositron_1').style.zIndex = 401;
         var layer_CartoPositron_1 = L.tileLayer('https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
             pane: 'pane_CartoPositron_1',
-            opacity: 0.68,
+            opacity: 0.65,
             attribution: '',
             minZoom: 1,
             maxZoom: 28,
@@ -140,7 +139,7 @@
         });
         bounds_group.addLayer(layer_alcaldiasalcaldias_cdmx_2);
         map.addLayer(layer_alcaldiasalcaldias_cdmx_2);
-        function pop_Coloniasconpostes_3(feature, layer) {
+        function pop_Coloniasconwifi_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -221,36 +220,36 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Coloniasconpostes_3_0() {
+        function style_Coloniasconwifi_3_0() {
             return {
-                pane: 'pane_Coloniasconpostes_3',
-                opacity: 0.5,
+                pane: 'pane_Coloniasconwifi_3',
+                opacity: 0.4,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.5,
+                fillOpacity: 0.4,
                 fillColor: 'rgba(41,66,231,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Coloniasconpostes_3');
-        map.getPane('pane_Coloniasconpostes_3').style.zIndex = 403;
-        map.getPane('pane_Coloniasconpostes_3').style['mix-blend-mode'] = 'normal';
-        var layer_Coloniasconpostes_3 = new L.geoJson(json_Coloniasconpostes_3, {
+        map.createPane('pane_Coloniasconwifi_3');
+        map.getPane('pane_Coloniasconwifi_3').style.zIndex = 403;
+        map.getPane('pane_Coloniasconwifi_3').style['mix-blend-mode'] = 'normal';
+        var layer_Coloniasconwifi_3 = new L.geoJson(json_Coloniasconwifi_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Coloniasconpostes_3',
-            layerName: 'layer_Coloniasconpostes_3',
-            pane: 'pane_Coloniasconpostes_3',
-            onEachFeature: pop_Coloniasconpostes_3,
-            style: style_Coloniasconpostes_3_0,
+            dataVar: 'json_Coloniasconwifi_3',
+            layerName: 'layer_Coloniasconwifi_3',
+            pane: 'pane_Coloniasconwifi_3',
+            onEachFeature: pop_Coloniasconwifi_3,
+            style: style_Coloniasconwifi_3_0,
         });
-        bounds_group.addLayer(layer_Coloniasconpostes_3);
-        map.addLayer(layer_Coloniasconpostes_3);
-        function pop_Coloniassinpostes_4(feature, layer) {
+        bounds_group.addLayer(layer_Coloniasconwifi_3);
+        map.addLayer(layer_Coloniasconwifi_3);
+        function pop_Coloniasprogramadas_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -324,120 +323,44 @@
                         <td>' + (feature.properties['Observaciones'] !== null ? autolinker.link(feature.properties['Observaciones'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Número de postes'] !== null ? autolinker.link(feature.properties['Número de postes'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Número de postes</th>\
+                        <td>' + (feature.properties['Número de postes'] !== null ? autolinker.link(feature.properties['Número de postes'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Coloniassinpostes_4_0() {
+        function style_Coloniasprogramadas_4_0() {
             return {
-                pane: 'pane_Coloniassinpostes_4',
-                opacity: 0.5,
+                pane: 'pane_Coloniasprogramadas_4',
+                opacity: 0.4,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.5,
+                fillOpacity: 0.4,
                 fillColor: 'rgba(183,72,75,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Coloniassinpostes_4');
-        map.getPane('pane_Coloniassinpostes_4').style.zIndex = 404;
-        map.getPane('pane_Coloniassinpostes_4').style['mix-blend-mode'] = 'normal';
-        var layer_Coloniassinpostes_4 = new L.geoJson(json_Coloniassinpostes_4, {
+        map.createPane('pane_Coloniasprogramadas_4');
+        map.getPane('pane_Coloniasprogramadas_4').style.zIndex = 404;
+        map.getPane('pane_Coloniasprogramadas_4').style['mix-blend-mode'] = 'normal';
+        var layer_Coloniasprogramadas_4 = new L.geoJson(json_Coloniasprogramadas_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Coloniassinpostes_4',
-            layerName: 'layer_Coloniassinpostes_4',
-            pane: 'pane_Coloniassinpostes_4',
-            onEachFeature: pop_Coloniassinpostes_4,
-            style: style_Coloniassinpostes_4_0,
+            dataVar: 'json_Coloniasprogramadas_4',
+            layerName: 'layer_Coloniasprogramadas_4',
+            pane: 'pane_Coloniasprogramadas_4',
+            onEachFeature: pop_Coloniasprogramadas_4,
+            style: style_Coloniasprogramadas_4_0,
         });
-        bounds_group.addLayer(layer_Coloniassinpostes_4);
-        map.addLayer(layer_Coloniassinpostes_4);
-        function pop_PuntosWifi_5(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Estado'] !== null ? autolinker.link(feature.properties['Estado'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Colonia'] !== null ? autolinker.link(feature.properties['Colonia'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Alcaldía'] !== null ? autolinker.link(feature.properties['Alcaldía'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Latitud'] !== null ? autolinker.link(feature.properties['Latitud'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Longitud'] !== null ? autolinker.link(feature.properties['Longitud'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Puntos_de_acceso'] !== null ? autolinker.link(feature.properties['Puntos_de_acceso'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Programa'] !== null ? autolinker.link(feature.properties['Programa'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_PuntosWifi_5_0() {
-            return {
-                pane: 'pane_PuntosWifi_5',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/Internet.svg',
-            iconSize: [13.68, 13.68]
-        }),
-                interactive: false,
-            }
-        }
-        map.createPane('pane_PuntosWifi_5');
-        map.getPane('pane_PuntosWifi_5').style.zIndex = 405;
-        map.getPane('pane_PuntosWifi_5').style['mix-blend-mode'] = 'normal';
-        var layer_PuntosWifi_5 = new L.geoJson(json_PuntosWifi_5, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'json_PuntosWifi_5',
-            layerName: 'layer_PuntosWifi_5',
-            pane: 'pane_PuntosWifi_5',
-            onEachFeature: pop_PuntosWifi_5,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_PuntosWifi_5_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_PuntosWifi_5);
-        map.addLayer(layer_PuntosWifi_5);
+        bounds_group.addLayer(layer_Coloniasprogramadas_4);
+        map.addLayer(layer_Coloniasprogramadas_4);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/PuntosWifi_5.png" /> Puntos Wifi': layer_PuntosWifi_5,'<img src="legend/Coloniassinpostes_4.png" /> Colonias sin postes': layer_Coloniassinpostes_4,'<img src="legend/Coloniasconpostes_3.png" /> Colonias con postes': layer_Coloniasconpostes_3,'<img src="legend/alcaldiasalcaldias_cdmx_2.png" /> alcaldias — alcaldias_cdmx': layer_alcaldiasalcaldias_cdmx_2,"Carto Positron": layer_CartoPositron_1,"Google Satellite": layer_GoogleSatellite_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Coloniasprogramadas_4.png" /> Colonias programadas': layer_Coloniasprogramadas_4,'<img src="legend/Coloniasconwifi_3.png" /> Colonias con wifi': layer_Coloniasconwifi_3,'<img src="legend/alcaldiasalcaldias_cdmx_2.png" /> alcaldias — alcaldias_cdmx': layer_alcaldiasalcaldias_cdmx_2,"Carto Positron": layer_CartoPositron_1,"Google Satellite": layer_GoogleSatellite_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
