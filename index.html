@@ -52,7 +52,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[18.94451664604471,-99.67665823979088],[19.785247549153834,-98.5202046130201]]);
+        }).fitBounds([[19.07331151752551,-99.69591346103348],[19.914109086386315,-98.53852695291786]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -76,7 +76,7 @@
         map.getPane('pane_CartoPositron_1').style.zIndex = 401;
         var layer_CartoPositron_1 = L.tileLayer('https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
             pane: 'pane_CartoPositron_1',
-            opacity: 0.6,
+            opacity: 0.60,
             attribution: '',
             minZoom: 1,
             maxZoom: 28,
@@ -222,7 +222,8 @@
                         <td>' + (feature.properties['NUMPOINTS'] !== null ? autolinker.link(feature.properties['NUMPOINTS'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Extra'] !== null ? autolinker.link(feature.properties['Extra'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Extra</th>\
+                        <td>' + (feature.properties['Extra'] !== null ? autolinker.link(feature.properties['Extra'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -239,7 +240,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.5,
-                fillColor: 'rgba(191,27,32,1.0)',
+                fillColor: 'rgba(196,60,57,1.0)',
                 interactive: true,
             }
         }
@@ -331,7 +332,8 @@
                         <td>' + (feature.properties['NUMPOINTS'] !== null ? autolinker.link(feature.properties['NUMPOINTS'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Extra'] !== null ? autolinker.link(feature.properties['Extra'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Extra</th>\
+                        <td>' + (feature.properties['Extra'] !== null ? autolinker.link(feature.properties['Extra'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -348,7 +350,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.5,
-                fillColor: 'rgba(44,129,194,1.0)',
+                fillColor: 'rgba(57,119,196,1.0)',
                 interactive: true,
             }
         }
