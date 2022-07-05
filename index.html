@@ -30,9 +30,9 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/alcaldiasalcaldias_cdmx_2.js"></script>
-        <script src="data/Coloniasconwifi_3.js"></script>
-        <script src="data/Coloniasprogramadas_4.js"></script>
+        <script src="data/Alcaldas_2.js"></script>
+        <script src="data/Coloniasprogramadas_3.js"></script>
+        <script src="data/Coloniasconwifi_4.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -52,7 +52,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[19.18286964486468,-99.38964876675368],[19.59450705015516,-98.8120981071334]]);
+        }).fitBounds([[18.94451664604471,-99.67665823979088],[19.785247549153834,-98.5202046130201]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -76,7 +76,7 @@
         map.getPane('pane_CartoPositron_1').style.zIndex = 401;
         var layer_CartoPositron_1 = L.tileLayer('https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
             pane: 'pane_CartoPositron_1',
-            opacity: 0.65,
+            opacity: 0.6,
             attribution: '',
             minZoom: 1,
             maxZoom: 28,
@@ -85,7 +85,7 @@
         });
         layer_CartoPositron_1;
         map.addLayer(layer_CartoPositron_1);
-        function pop_alcaldiasalcaldias_cdmx_2(feature, layer) {
+        function pop_Alcaldas_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -103,18 +103,27 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['nomgeo'] !== null ? autolinker.link(feature.properties['nomgeo'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['gid'] !== null ? autolinker.link(feature.properties['gid'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['zona'] !== null ? autolinker.link(feature.properties['zona'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['cvegeo'] !== null ? autolinker.link(feature.properties['cvegeo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['cve_ent'] !== null ? autolinker.link(feature.properties['cve_ent'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['cve_mun'] !== null ? autolinker.link(feature.properties['cve_mun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nomgeo'] !== null ? autolinker.link(feature.properties['nomgeo'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_alcaldiasalcaldias_cdmx_2_0() {
+        function style_Alcaldas_2_0() {
             return {
-                pane: 'pane_alcaldiasalcaldias_cdmx_2',
+                pane: 'pane_Alcaldas_2',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -125,21 +134,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_alcaldiasalcaldias_cdmx_2');
-        map.getPane('pane_alcaldiasalcaldias_cdmx_2').style.zIndex = 402;
-        map.getPane('pane_alcaldiasalcaldias_cdmx_2').style['mix-blend-mode'] = 'normal';
-        var layer_alcaldiasalcaldias_cdmx_2 = new L.geoJson(json_alcaldiasalcaldias_cdmx_2, {
+        map.createPane('pane_Alcaldas_2');
+        map.getPane('pane_Alcaldas_2').style.zIndex = 402;
+        map.getPane('pane_Alcaldas_2').style['mix-blend-mode'] = 'normal';
+        var layer_Alcaldas_2 = new L.geoJson(json_Alcaldas_2, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_alcaldiasalcaldias_cdmx_2',
-            layerName: 'layer_alcaldiasalcaldias_cdmx_2',
-            pane: 'pane_alcaldiasalcaldias_cdmx_2',
-            onEachFeature: pop_alcaldiasalcaldias_cdmx_2,
-            style: style_alcaldiasalcaldias_cdmx_2_0,
+            dataVar: 'json_Alcaldas_2',
+            layerName: 'layer_Alcaldas_2',
+            pane: 'pane_Alcaldas_2',
+            onEachFeature: pop_Alcaldas_2,
+            style: style_Alcaldas_2_0,
         });
-        bounds_group.addLayer(layer_alcaldiasalcaldias_cdmx_2);
-        map.addLayer(layer_alcaldiasalcaldias_cdmx_2);
-        function pop_Coloniasconwifi_3(feature, layer) {
+        bounds_group.addLayer(layer_Alcaldas_2);
+        map.addLayer(layer_Alcaldas_2);
+        function pop_Coloniasprogramadas_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -156,6 +165,10 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Clave</th>\
+                        <td>' + (feature.properties['Clave'] !== null ? autolinker.link(feature.properties['Clave'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Nombre</th>\
                         <td>' + (feature.properties['Nombre'] !== null ? autolinker.link(feature.properties['Nombre'].toLocaleString()) : '') + '</td>\
@@ -209,47 +222,42 @@
                         <td>' + (feature.properties['NUMPOINTS'] !== null ? autolinker.link(feature.properties['NUMPOINTS'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Observaciones</th>\
-                        <td>' + (feature.properties['Observaciones'] !== null ? autolinker.link(feature.properties['Observaciones'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Número de postes</th>\
-                        <td>' + (feature.properties['Número de postes'] !== null ? autolinker.link(feature.properties['Número de postes'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Extra'] !== null ? autolinker.link(feature.properties['Extra'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Coloniasconwifi_3_0() {
+        function style_Coloniasprogramadas_3_0() {
             return {
-                pane: 'pane_Coloniasconwifi_3',
-                opacity: 0.4,
+                pane: 'pane_Coloniasprogramadas_3',
+                opacity: 0.5,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.4,
-                fillColor: 'rgba(41,66,231,1.0)',
+                fillOpacity: 0.5,
+                fillColor: 'rgba(191,27,32,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Coloniasconwifi_3');
-        map.getPane('pane_Coloniasconwifi_3').style.zIndex = 403;
-        map.getPane('pane_Coloniasconwifi_3').style['mix-blend-mode'] = 'normal';
-        var layer_Coloniasconwifi_3 = new L.geoJson(json_Coloniasconwifi_3, {
+        map.createPane('pane_Coloniasprogramadas_3');
+        map.getPane('pane_Coloniasprogramadas_3').style.zIndex = 403;
+        map.getPane('pane_Coloniasprogramadas_3').style['mix-blend-mode'] = 'normal';
+        var layer_Coloniasprogramadas_3 = new L.geoJson(json_Coloniasprogramadas_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Coloniasconwifi_3',
-            layerName: 'layer_Coloniasconwifi_3',
-            pane: 'pane_Coloniasconwifi_3',
-            onEachFeature: pop_Coloniasconwifi_3,
-            style: style_Coloniasconwifi_3_0,
+            dataVar: 'json_Coloniasprogramadas_3',
+            layerName: 'layer_Coloniasprogramadas_3',
+            pane: 'pane_Coloniasprogramadas_3',
+            onEachFeature: pop_Coloniasprogramadas_3,
+            style: style_Coloniasprogramadas_3_0,
         });
-        bounds_group.addLayer(layer_Coloniasconwifi_3);
-        map.addLayer(layer_Coloniasconwifi_3);
-        function pop_Coloniasprogramadas_4(feature, layer) {
+        bounds_group.addLayer(layer_Coloniasprogramadas_3);
+        map.addLayer(layer_Coloniasprogramadas_3);
+        function pop_Coloniasconwifi_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -266,6 +274,10 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Clave</th>\
+                        <td>' + (feature.properties['Clave'] !== null ? autolinker.link(feature.properties['Clave'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Nombre</th>\
                         <td>' + (feature.properties['Nombre'] !== null ? autolinker.link(feature.properties['Nombre'].toLocaleString()) : '') + '</td>\
@@ -319,48 +331,43 @@
                         <td>' + (feature.properties['NUMPOINTS'] !== null ? autolinker.link(feature.properties['NUMPOINTS'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Observaciones</th>\
-                        <td>' + (feature.properties['Observaciones'] !== null ? autolinker.link(feature.properties['Observaciones'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Número de postes</th>\
-                        <td>' + (feature.properties['Número de postes'] !== null ? autolinker.link(feature.properties['Número de postes'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Extra'] !== null ? autolinker.link(feature.properties['Extra'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Coloniasprogramadas_4_0() {
+        function style_Coloniasconwifi_4_0() {
             return {
-                pane: 'pane_Coloniasprogramadas_4',
-                opacity: 0.4,
+                pane: 'pane_Coloniasconwifi_4',
+                opacity: 0.5,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.4,
-                fillColor: 'rgba(183,72,75,1.0)',
+                fillOpacity: 0.5,
+                fillColor: 'rgba(44,129,194,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Coloniasprogramadas_4');
-        map.getPane('pane_Coloniasprogramadas_4').style.zIndex = 404;
-        map.getPane('pane_Coloniasprogramadas_4').style['mix-blend-mode'] = 'normal';
-        var layer_Coloniasprogramadas_4 = new L.geoJson(json_Coloniasprogramadas_4, {
+        map.createPane('pane_Coloniasconwifi_4');
+        map.getPane('pane_Coloniasconwifi_4').style.zIndex = 404;
+        map.getPane('pane_Coloniasconwifi_4').style['mix-blend-mode'] = 'normal';
+        var layer_Coloniasconwifi_4 = new L.geoJson(json_Coloniasconwifi_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Coloniasprogramadas_4',
-            layerName: 'layer_Coloniasprogramadas_4',
-            pane: 'pane_Coloniasprogramadas_4',
-            onEachFeature: pop_Coloniasprogramadas_4,
-            style: style_Coloniasprogramadas_4_0,
+            dataVar: 'json_Coloniasconwifi_4',
+            layerName: 'layer_Coloniasconwifi_4',
+            pane: 'pane_Coloniasconwifi_4',
+            onEachFeature: pop_Coloniasconwifi_4,
+            style: style_Coloniasconwifi_4_0,
         });
-        bounds_group.addLayer(layer_Coloniasprogramadas_4);
-        map.addLayer(layer_Coloniasprogramadas_4);
+        bounds_group.addLayer(layer_Coloniasconwifi_4);
+        map.addLayer(layer_Coloniasconwifi_4);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Coloniasprogramadas_4.png" /> Colonias programadas': layer_Coloniasprogramadas_4,'<img src="legend/Coloniasconwifi_3.png" /> Colonias con wifi': layer_Coloniasconwifi_3,'<img src="legend/alcaldiasalcaldias_cdmx_2.png" /> alcaldias — alcaldias_cdmx': layer_alcaldiasalcaldias_cdmx_2,"Carto Positron": layer_CartoPositron_1,"Google Satellite": layer_GoogleSatellite_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Coloniasconwifi_4.png" /> Colonias con wifi': layer_Coloniasconwifi_4,'<img src="legend/Coloniasprogramadas_3.png" /> Colonias programadas': layer_Coloniasprogramadas_3,'<img src="legend/Alcaldas_2.png" /> Alcaldías': layer_Alcaldas_2,"Carto Positron": layer_CartoPositron_1,"Google Satellite": layer_GoogleSatellite_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
